@@ -22,7 +22,7 @@ export class DataStorageService {
     // });
 
     const request = new HttpRequest('PUT','https://ng-recipe-book-ac641.firebaseio.com/recipes.json',
-      this.recipeService.getRecipes(), {reportProgress: true, params: new HttpParams().set('auth', token)});
+      this.recipeService.getRecipes(), {reportProgress: true});
 
     return this.httpClient.request( request );
   }
@@ -32,12 +32,7 @@ export class DataStorageService {
 
     //this.httpClient.get<Recipe[]>('https://ng-recipe-book-ac641.firebaseio.com/recipes.json?auth=' + token)
 
-    this.httpClient.get<Recipe[]>('https://ng-recipe-book-ac641.firebaseio.com/recipes.json',
-      {
-        observe: 'body',
-        responseType: 'json',
-        params: new HttpParams().set('auth', token)
-      })
+    this.httpClient.get<Recipe[]>('https://ng-recipe-book-ac641.firebaseio.com/recipes.json')
       .map(
         (recipes) => {
           console.log(recipes);
