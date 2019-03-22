@@ -6,7 +6,6 @@ import {AuthGuard} from '../auth/auth-guard.service';
 import {RecipeDetailComponent} from './recipe-detail/recipe-detail.component';
 import {RouterModule, Routes} from '@angular/router';
 
-
 const recipesRoutes: Routes = [{
   path: '', component: RecipesComponent, children: [
     { path: '', component: RecipeStartComponent },
